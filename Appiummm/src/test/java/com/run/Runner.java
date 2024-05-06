@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		
 		features="src/test/resources/features",
-		glue="com.step",
+		glue={"com.step","com.hook"},
 		dryRun=false,
 		monochrome=true,
 			publish=true,
@@ -30,36 +30,13 @@ import io.cucumber.testng.CucumberOptions;
 		
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Runner extends AbstractTestNGCucumberTests  {
 	
 	@Override
-	
 	@DataProvider(parallel=false)
-	
-	public Object[][] scenarios(){
-		
+	public Object[][]scenarios(){
 		return super.scenarios();
 	}
+	
 
 }

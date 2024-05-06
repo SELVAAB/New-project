@@ -2,38 +2,38 @@ package com.step;
 
 import org.openqa.selenium.WebDriver;
 
+import com.hook.Hooks;
+import com.page.Homepage;
 import com.page.Login;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Step {
+public class Step  {
 	
 	
 	
-	public WebDriver driver;
+	public  WebDriver driver = Hooks.driver;
 	
+	Login loginp;
 	
-	
-	 Login lll=new Login(driver);
-	
-	
-	
-	
+	Homepage page;
 	
 	
 	@Given("open chrome browser")
 	public void open_chrome_browser() {
-	    Login lll=new Login(driver);
-	    lll.senduser();
-	    lll.sendpass();
-	    lll.clickonbtn();
+	    Login loginp=new Login(driver);
+	    loginp.senduser();
+	   // loginp.sendpass();
+	   // loginp.clickonbtn();
 	}
 
 	@Given("click on search button")
-	public void click_on_search_button() {
+	public void click_on_search_button() throws InterruptedException {
+	  Homepage page=new Homepage(driver);
 	  
+	  page.dropdown();
 	}
 
 	@When("enter url")
